@@ -36,3 +36,14 @@ class CustomerTest(unittest.TestCase):
 		matches = re.match(pattern, stmt.replace('\n',''), flags=re.DOTALL)
 		self.assertIsNotNone(matches)
 		self.assertEqual("12.00", matches[1])
+
+	def test_total_charge(self):
+		"""Test the total_charge method."""
+		rental1 = Rental(self.new_movie, 6)  # 3 * 6 = 18
+		self.c.add_rental(rental1)
+		rental2 = Rental(self.regular_movie, 5)  # 2 + (1.5 * (5 - 2)) = 6.5
+		self.c.add_rental(rental2)
+		rental3 = Rental(self.childrens_movie, 4)  # 1.5 + (1.5 * (4 - 3)) = 3
+		self.c.add_rental(rental3)
+		# 18 + 6.5 + 3 = 27.5
+		self.assertEqual(self.c.total_charge(), 27.5)
