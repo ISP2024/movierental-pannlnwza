@@ -1,6 +1,3 @@
-import logging
-
-
 class Rental:
 	"""
 	A rental of a movie by customer.
