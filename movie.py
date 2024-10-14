@@ -74,19 +74,19 @@ class Movie:
     def __init__(self, title, price_code):
         # Initialize a new movie. 
         self.title = title
-        self.strategy = price_code
+        self.price_code = price_code
 
     def get_price_code(self):
-        return self.strategy
+        return self.price_code
 
     def get_title(self):
         return self.title
 
     def get_price(self, days):
-        return self.strategy.get_price(days)
+        return self.price_code.get_price(days)
 
     def get_rental_points(self, days):
-        return self.strategy.get_rental_points(days)
+        return self.price_code.get_rental_points(days)
 
     def __str__(self):
         return self.title
