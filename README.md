@@ -26,3 +26,9 @@ See [Resources](https://cpske.github.io/ISP/assignment/movierental/movierental-p
 Single Responsibility Principle - According to SRP, a class should have only one responsibility.
   - The `Movie` class is responsible for holding information about the movie.
   - The `Rental` class is responsible for managing the rental process.
+
+### 5.2 I choose to implement price_code_for_movie method in the PriceStrategy class for the following reasons:
+
+  - Low Coupling: By placing this method here, it minimizes dependencies between the `Movie` and `Rental` classes. 
+  - Single Responsibility Principle: The `PriceStrategy` class is responsible for defining price rules. By implementing the pricing logic here, we ensure that each class has a single responsibility.
+  - High Cohesion: The `PriceStrategy` class is focused on pricing. By including the price code determination method here, we ensure that all price related functions are in the same class. 
