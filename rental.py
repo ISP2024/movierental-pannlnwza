@@ -23,8 +23,8 @@ class Rental:
 
 	def get_price(self):
 		"""Get the price of the Movie."""
-		return self.get_movie().get_price(self.get_days_rented())
+		return self.movie.price_code.get_price(self.days_rented)
 
 	def get_rental_points(self):
 		"""Get the rental points of the Movie."""
-		return self.get_movie().get_rental_points(self.get_days_rented())
+		return self.movie.price_code.get_rental_points(self.days_rented)
