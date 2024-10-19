@@ -1,4 +1,7 @@
 import abc
+from datetime import datetime
+
+from movie import Movie
 
 
 class PriceStrategy(abc.ABC):
@@ -19,6 +22,17 @@ class PriceStrategy(abc.ABC):
         if not cls._instance:
             cls._instance = super(PriceStrategy, cls).__new__(cls)
         return cls._instance
+
+    @classmethod
+    def price_code_for_movie(cls, movie: Movie):
+        """Determine the price code for a given movie."""
+        current_year = datetime.now().year
+        if movie.year == current_year:
+            return NewReleasePrice()
+        elif any(genre.lower() in ['children', 'childrens'] for genre in movie.genre):
+            return ChildrensPrice()
+        else:
+            return RegularPrice()
 
 
 class NewReleasePrice(PriceStrategy):
