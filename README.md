@@ -18,3 +18,11 @@ Before and after each refactoring you should **run the unit tests**.
 
 See [Resources](https://cpske.github.io/ISP/assignment/movierental/movierental-part1#resources) in the assignment description.
 
+## Rationale
+### 2.1 Refactoring Signs (Code Smells)
+- Feature Envy: The `price_code` attribute is more frequently used by `Rental` than by `Movie`. `Rental` is the class that directly interacts with the `price_code` for pricing and rental points.
+- Middle Man: The `Rental` class was calling methods on the `Movie` to access pricing information.
+### 2.2 Design Principle
+Single Responsibility Principle - According to SRP, a class should have only one responsibility.
+  - The `Movie` class is responsible for holding information about the movie.
+  - The `Rental` class is responsible for managing the rental process.
