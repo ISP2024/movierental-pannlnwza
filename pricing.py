@@ -69,8 +69,3 @@ class ChildrensPrice(PriceStrategy):
 
     def get_rental_points(self, days: int) -> int:
         return 1
-
-
-NEW_RELEASE = NewReleasePrice()
-REGULAR = RegularPrice()
-CHILDREN = ChildrensPrice()

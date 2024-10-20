@@ -2,7 +2,7 @@ import unittest
 from pricing import *
 
 
-class TestPriceCodeForMovie(unittest.TestCase):
+class PriceCodeTest(unittest.TestCase):
     def test_new_release(self):
         movie = Movie("New Release", datetime.now().year, [])
         price_code = PriceStrategy.price_code_for_movie(movie)
